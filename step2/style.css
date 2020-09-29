@@ -1,0 +1,26 @@
+body {
+    background-color: grey;
+}
+
+p {
+    margin-left: 20px;
+    color: whitesmoke;
+    font-size: 20px;
+}
+
+h1 {
+    color: papayawhip;
+}
+
+div {
+    border: turquoise 2px solid;
+
+}
+
+#grand_titre{
+    color: tomato;
+    text-align: center;
+    font-size: 40px;
+    font-style: italic;
+
+}
