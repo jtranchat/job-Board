@@ -3,7 +3,9 @@ CREATE TABLE `Annonce` (
 `nom` varchar(50), 
 `description` varchar(255), 
 `idEntreprise` int, 
-`place` int, 
+`place` int,
+`salaires` int,
+`tempDeTravailParSemaine` int,
 `contrat` varchar(30),
 primary key (identifiant)
 );
@@ -64,8 +66,8 @@ VALUES
 ('Adrian','ballari','38','homme','adrian.ballari@gmail.com','0659783241','employeur','ingénieur Informatique','10 ans chez snapchat'),
 ('fabien','bounoir','48','homme','fabien.bounoir@gmail.com','0678415295','employeur','ingénieur Informatique','10 ans facebook');
 
-INSERT INTO Annonce (nom, description, idEntreprise, place, contrat)
+INSERT INTO Annonce (nom, description, idEntreprise, place, salaires, tempDeTravailParSemaine, contrat)
 VALUES
-('Ingénieur informatique','cherche ingénieur informatique','2','1','CDI'),
-('dévellopeur web','cherche dévellopeur web Javascript','1','1','CDD'),
-('dévellopeur fullstack','cherche dévellopeur fullstack','3','1','CDD');
+('Ingénieur informatique','cherche ingénieur informatique','2','1','2500', '35', 'CDI'),
+('dévellopeur web','cherche dévellopeur web Javascript','1','1','2500', '35', 'CDD'),
+('dévellopeur fullstack','cherche dévellopeur fullstack','3','1','2500', '35', 'CDD');
