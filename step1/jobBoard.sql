@@ -26,6 +26,8 @@ CREATE TABLE `Personne` (
 `sexe` varchar(20),
 `mail` varchar(100),
 `telephone` varchar(10),
+`identifiant` varchar(20),
+`motDePasse` varchar(20),
 `status` varchar(20),
 `diplome` varchar(255),
 `experience` varchar(255),
@@ -57,14 +59,14 @@ VALUES
 ('facebook', '6 rue Menars, 75002 Paris', 'Réseaux social'),
 ('Snapchat', '16 rue de la rochefoucauld, 75009 Paris', 'Réseaux social');
 
-INSERT INTO Personne (nom, prenom, age, sexe, mail, telephone, status, diplome, experience)
+INSERT INTO Personne (nom, prenom, age, sexe, mail, telephone,identifiant, motDePasse, status, diplome, experience)
 VALUES
-('Alban','Rochas','20','homme','alban.rochas@epitech.eu','0658795879','demandeur','BTS, Bac','Contrat étudiant à Leroy Merlin'),
-('Joffrey','Tranchat','20','homme','joffrey.tranchat@epitech.eu','0768785945','demandeur','BTS Bac','stage Grand delta habitat à avignon pendant 6 semaines au services informatique'),
-('Michel','Honteux','54','homme','michel.honteux@gmail.com','0769696969','demandeur',' Informatique','25 ans en freelance'),
-('Patrick','Balkany','47','homme','Patrick.Balkany@gmail.com','0712121212','employeur','Ingénieur Informatique','25 ans cher google'),
-('Adrian','ballari','38','homme','adrian.ballari@gmail.com','0659783241','employeur','ingénieur Informatique','10 ans chez snapchat'),
-('fabien','bounoir','48','homme','fabien.bounoir@gmail.com','0678415295','employeur','ingénieur Informatique','10 ans facebook');
+('Alban','Rochas','20','homme','alban.rochas@epitech.eu','0658795879','a.rochas','sparkyoto','demandeur','BTS, Bac','Contrat étudiant à Leroy Merlin'),
+('Joffrey','Tranchat','20','homme','joffrey.tranchat@epitech.eu','0768785945','j.tranchat','Prodyy','demandeur','BTS Bac','stage Grand delta habitat à avignon pendant 6 semaines au services informatique'),
+('Michel','Honteux','54','homme','michel.honteux@gmail.com','0769696969','m.honteux','honteux','demandeur',' Informatique','25 ans en freelance'),
+('Patrick','Balkany','47','homme','Patrick.Balkany@gmail.com','0712121212','p.balkany','levallois','employeur','Ingénieur Informatique','25 ans cher google'),
+('Pierre-Antoine','Legger','38','homme','pierre-antoine.legger@gmail.com','0659783241','pa.legger','password','employeur','ingénieur Informatique','10 ans chez snapchat'),
+('Fabien','Bounoir','48','homme','fabien.bounoir@gmail.com','0678415295','','','employeur','ingénieur Informatique','10 ans facebook');
 
 INSERT INTO Annonce (nom, description, idEntreprise, place, salaires, tempDeTravailParSemaine, contrat)
 VALUES
