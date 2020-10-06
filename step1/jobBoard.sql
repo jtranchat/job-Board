@@ -12,7 +12,7 @@ primary key (identifiant)
 
 CREATE TABLE `Entreprise` (
 `idEntreprise` int AUTO_INCREMENT,
-`nom` varchar(50),
+`nomEntreprise` varchar(50),
 `localisation` varchar(150),
 `activites` varchar(255),
 primary key (idEntreprise)
@@ -51,7 +51,7 @@ ALTER TABLE `Candidature` ADD FOREIGN KEY (`idDemandeur`) REFERENCES `Personne`(
 
 ALTER TABLE `Candidature` ADD FOREIGN KEY (`idDestinataire`) REFERENCES `Personne`(idPersonne);
 
-INSERT INTO Entreprise (nom, localisation, activites)
+INSERT INTO Entreprise (nomEntreprise, localisation, activites)
 VALUES
 ('Epitech', '3 Place Paul Bec, 34000 Montpellier', 'Ecoles informatique'),
 ('Google', '38 avenue de lopéra', 'Moteur de recherche web plutôt célèbre'),
