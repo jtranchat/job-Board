@@ -45,7 +45,7 @@ primary key (idCandidature)
 
 ALTER TABLE `Annonce` ADD FOREIGN KEY (`idEntreprise`) REFERENCES `Entreprise`(idEntreprise);
 
-ALTER TABLE `Candidature` ADD FOREIGN KEY (`idAnnonce`) REFERENCES `Annonce`(identifiant);
+ALTER TABLE `Candidature` ADD FOREIGN KEY (`idAnnonce`) REFERENCES `Annonce`(idAnnonce);
 
 ALTER TABLE `Candidature` ADD FOREIGN KEY (`idDemandeur`) REFERENCES `Personne`(idPersonne);
 
