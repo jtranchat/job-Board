@@ -1,5 +1,5 @@
 CREATE TABLE `Annonce` ( 
-`identifiant` int AUTO_INCREMENT, 
+`idAnnonce` int AUTO_INCREMENT, 
 `nom` varchar(50), 
 `description` varchar(255), 
 `idEntreprise` int, 
@@ -7,7 +7,7 @@ CREATE TABLE `Annonce` (
 `salaires` int,
 `tempDeTravailParSemaine` int,
 `contrat` varchar(30),
-primary key (identifiant)
+primary key (idAnnonce)
 );
 
 CREATE TABLE `Entreprise` (
@@ -70,6 +70,6 @@ VALUES
 
 INSERT INTO Annonce (nom, description, idEntreprise, place, salaires, tempDeTravailParSemaine, contrat)
 VALUES
-('Ingénieur informatique','cherche ingénieur informatique','2','1','2500', '35', 'CDI'),
-('dévellopeur web','cherche dévellopeur web Javascript','1','1','2500', '35', 'CDD'),
+('Ingénieur informatique','cherche ingénieur informatique','1','1','2500', '35', 'CDI'),
+('dévellopeur web','cherche dévellopeur web Javascript','2','1','2500', '35', 'CDD'),
 ('dévellopeur fullstack','cherche dévellopeur fullstack','3','1','2500', '35', 'CDD');
