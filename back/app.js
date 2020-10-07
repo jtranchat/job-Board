@@ -61,44 +61,4 @@ app.get('/personne/:id', (req, res) => {
     }
 });
 
-//récupérer une ou plusieur entreprise
-app.get('/entreprise/:id', (req, res) => {
-    if(req.params.id == 0)
-    {
-        mysqlConnection.query('SELECT * FROM Entreprise', (err, rows, fields) => {
-            if (!err)
-                res.send(rows);
-            else
-                console.log(err);
-        });
-    } else {
-        mysqlConnection.query('SELECT * FROM Entreprise WHERE idEntreprise = ?', [req.params.id], (err, rows, fields) => {
-            if (!err)
-                res.send(rows);
-            else
-                console.log(err);
-        });
-    }  
-});
-
-//récupérer une annonce
-app.get('/annonce/:id', (req, res) => {
-    if(req.params.id == 0)
-    {
-        mysqlConnection.query('SELECT * FROM Annonce', (err, rows, fields) => {
-            if (!err)
-                res.send(rows);
-            else
-                console.log(err);
-        });
-    } else {
-        mysqlConnection.query('SELECT * FROM Annonce WHERE identifiant = ?', [req.params.id], (err, rows, fields) => {
-            if (!err)
-                res.send(rows);
-            else
-                console.log(err);
-        });
-    } 
-});
-
 module.exports = app;
