@@ -30,6 +30,7 @@ mysqlConnection.connect((err) => {
         console.log('DB connection failed \n Error : ' + JSON.stringify(err, undefined, 2));
 });
 
+//fonction permettant de lire la base de données
 //recuperer les information d'une annonce specifique
 app.get("/information/:id", (req, res, next) => {
     console.log("idAnnonce =" + req.params.id)
@@ -39,25 +40,22 @@ app.get("/information/:id", (req, res, next) => {
       });
   });
 
-//fonction permettant de lire la base de données
-//récupérer une ou plusieurs personne personne
-app.get('/personne/:id', (req, res) => {
-    if(req.params.id == 0)
-    {
-        mysqlConnection.query('SELECT * FROM Personne', (err, rows, fields) => {
-            if (!err)
-                res.send(rows);
-            else
-                console.log(err);
-        });
-    } else {
-        mysqlConnection.query('SELECT * FROM Personne WHERE idPersonne = ?', [req.params.id], (err, rows, fields) => {
-            if (!err)
-                res.send(rows);
-            else
-                console.log(err);
-        });
-    }
+//fonction permettant d'écrire dans la base de données
+app.post('/addPersonne', function(req, res) {
+    let data = req.body;
+    mysqlConnection.query('INSERT INTO Personne SET ?', data, function(err, rows, fields) {
+        if (err) throw err;
+        res.end(JSON.stringify(rows));
+    });
+});
+
+//fonction permettant de delete une personne
+app.delete('/deletePersonne/:id', function(req, res) {
+    console.log(req.params.id);
+    mysqlConnection.query('DELETE FROM Personne WHERE idPersonne=?', [req.params.id], function(err, rows, fields) {
+        if (err) throw err;
+        res.end("record deleted!!!");
+    });
 });
 
 module.exports = app;
