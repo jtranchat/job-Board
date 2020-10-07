@@ -51,10 +51,17 @@ app.post('/addPersonne', function(req, res) {
 
 //fonction permettant de delete une personne
 app.delete('/deletePersonne/:id', function(req, res) {
-    console.log(req.params.id);
     mysqlConnection.query('DELETE FROM Personne WHERE idPersonne=?', [req.params.id], function(err, rows, fields) {
         if (err) throw err;
-        res.end("record deleted!!!");
+        res.end(JSON.stringify(rows));
+    });
+});
+
+//fonction permettant de modifier l'identifiant et le mot de passe d'une personne
+app.put('/updateIdentifiant/:id', function(req, res) {
+    mysqlConnection.query('UPDATE Personne SET identifiant= ?, motDePasse= ? WHERE idPersonne = ?', [req.body.identifiant, req.body.motDePasse,req.params.id], function(err, rows, fields) {
+        if (err) throw err;
+        res.end(JSON.stringify(rows));
     });
 });
 
