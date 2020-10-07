@@ -35,7 +35,6 @@ app.get("/information/:id", (req, res, next) => {
     console.log("idAnnonce =" + req.params.id)
         mysqlConnection.query('SELECT Annonce.nom, Annonce.description, Annonce.place, Annonce.salaires, Annonce.tempDeTravailParSemaine, Annonce.contrat, Entreprise.nomEntreprise AS nomEntreprise, Entreprise.localisation AS localisation, Entreprise.activites AS activites FROM Annonce INNER JOIN Entreprise ON Annonce.idEntreprise = Entreprise.idEntreprise WHERE idAnnonce =' + req.params.id, function(err, rows, fields) {
         if (err) throw err;
-        console.log('information annonce recuperer:', rows);
         res.status(200).json(rows);
       });
   });

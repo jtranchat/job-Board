@@ -21,7 +21,6 @@ $(document).ready(function(){
    $(".buttonMore").click(function(e) {
         let parent = this.parentNode;
         axios.get('information/' + $(this).attr("id")).then( function(res) {
-            console.log(res.data);
             $(parent).html(informationCard(res.data));
         }).catch(function(error) {
             console.log(error);
