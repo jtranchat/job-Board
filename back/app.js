@@ -5,9 +5,6 @@ const dotenv = require('dotenv')
 var app = express();
 const bodyparser = require('body-parser');
 
-var url = 'localhost:3000/';
-var information = 'information/';
-
 dotenv.config({ path: './.env'});
 
 app.use(bodyparser.json());
@@ -33,7 +30,7 @@ mysqlConnection.connect((err) => {
 //fonction permettant de lire la base de données
 //recuperer les information d'une annonce specifique
 app.get("/information/:id", (req, res, next) => {
-        mysqlConnection.query('SELECT Annonce.nom, Annonce.description, Annonce.salaires,Annonce.Contrat, Entreprise.nomEntreprise AS nomEntreprise \
+        mysqlConnection.query('SELECT Annonce.idAnnonce, Annonce.nom, Annonce.description, Annonce.salaires,Annonce.Contrat, Entreprise.nomEntreprise AS nomEntreprise \
         FROM Annonce INNER JOIN Entreprise ON Annonce.idEntreprise = Entreprise.idEntreprise WHERE idAnnonce =' 
         + req.params.id, function(err, rows, fields) {
             if (err) throw err;
@@ -72,6 +69,11 @@ app.put('/updateIdentifiant/:id', function(req, res) {
         if (err) throw err;
         res.end(JSON.stringify(rows));
     });
+});
+
+//fonction permettant de stocker les données d'une candidature
+app.post('/candidature', function(req, res) {
+
 });
 
 module.exports = app;
