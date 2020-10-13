@@ -35,14 +35,22 @@ app.get("/information/:id", (req, res, next) => {
         + req.params.id, function(err, rows, fields) {
             if (err) throw err;
             res.status(200).json(rows);
-      });
-  });
+    });
+});
 
 app.get("/annonce", (req, res, next) => {
     mysqlConnection.query('SELECT Annonce.idAnnonce, Annonce.description, Entreprise.nomEntreprise AS nomEntreprise FROM Annonce INNER JOIN Entreprise ON \
     Annonce.idEntreprise = Entreprise.idEntreprise' , function(err, rows, fields) {
         if (err) throw err;
         res.status(200).json(rows);
+    })
+})
+
+//route permettant de vérifier si la personne est dèja dans la bdd
+app.get("/checkPersonne", (req, res, next) => {
+    let data = req.body;
+    mysqlConnection.query('SELECT idPersonne FROM Personne WHERE nom=? AND prenom=?', [data.lname, data.fname], function(err, rows, fields) {
+
     })
 })
 
@@ -73,7 +81,8 @@ app.put('/updateIdentifiant/:id', function(req, res) {
 
 //fonction permettant de stocker les données d'une candidature
 app.post('/candidature', function(req, res) {
-
+    let data = req.body;
+    
 });
 
 module.exports = app;
