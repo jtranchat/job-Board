@@ -59,17 +59,19 @@ const informationCard = function (data) {
 
 const Form = function() {
     let form =  '<h1>Forms</h1>' +
-                '<form onsubmit="clickSubmit()">'+
+                '<form>'+
                     '<label for="fname">First name:</label>' +
                     '<input type="text" id="fname" name="fname" required><br><br>' +
                     '<label for="lname">Last name:</label>' +
                     '<input type="text" id="lname" name="lname" required><br><br>' +
                     '<label for="phone">Phone:</label>' +
                     '<input type="text" id="phone" name="phone" maxlength="10" required><br><br>' +
-                    '<label for"email>Email :</label>"' +
-                    '<textarea id="mail" name="email" rows="10" cols="40" required></textarea><br><br>' +
+                    '<label for="email">Email :</label>' +
+                    '<input type="text" id="email" name="email" required><br><br>' +
+                    '<label for="message">Message :</label>' +
+                    '<textarea id="message" name="message" rows="10" cols="40" required></textarea><br><br>' +
                     '<label for="submit"></label>' +
-                    '<button id="buttonSubmit" type="submit" value="submit">Submit</button>' +
+                    '<input type="button" value="Submit" id="submitButton" onclick="clickSubmit()"' +
                 '</form>'
 
     return form;
@@ -86,26 +88,7 @@ const clickSubmit = function() {
     let fname = document.getElementById("fname").value;
     let lname = document.getElementById("lname").value;
     let phone = document.getElementById("phone").value;
-    let email = document.getElementById("mail").value;
-
-    //checkUser()
-
-    axios({
-        method: 'post',
-        url: '/candidature',
-        data: {
-            "fname": fname,
-            "lname": lname,
-            "phone": phone,
-            "email": email
-        }
-    }).then(function(res) {
-        console.log(res);
-    }).catch(function(err) {
-        console.log(err);
-    })
-}
-
-const checkUser = function() {
-
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+    
 }
