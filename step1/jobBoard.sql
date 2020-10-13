@@ -51,6 +51,8 @@ ALTER TABLE `Candidature` ADD FOREIGN KEY (`idAnnonce`) REFERENCES `Annonce`(idA
 
 ALTER TABLE `Candidature` ADD FOREIGN KEY (`idCandidat`) REFERENCES `Personne`(idPersonne);
 
+ALTER TABLE Personne ADD UNIQUE (mail);
+
 INSERT INTO Entreprise (nomEntreprise, localisation, activite)
 VALUES
 ('Epitech', '3 Place Paul Bec, 34000 Montpellier', 'Ecoles informatique'),
