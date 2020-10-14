@@ -57,7 +57,7 @@ const informationCard = function (data) {
     return information;
 };
 
-const Form = function() {
+const Form = function(idAnnonce) {
     let form =  '<h1>Forms</h1>' +
                 '<form>'+
                     '<label for="fname">First name:</label>' +
@@ -65,30 +65,74 @@ const Form = function() {
                     '<label for="lname">Last name:</label>' +
                     '<input type="text" id="lname" name="lname" required><br><br>' +
                     '<label for="phone">Phone:</label>' +
-                    '<input type="text" id="phone" name="phone" maxlength="10" required><br><br>' +
+                    '<input type="text" id="phone" name="phone" minlength="10" maxlength="10" required><br><br>' +
                     '<label for="email">Email :</label>' +
                     '<input type="text" id="email" name="email" required><br><br>' +
                     '<label for="message">Message :</label>' +
                     '<textarea id="message" name="message" rows="10" cols="40" required></textarea><br><br>' +
                     '<label for="submit"></label>' +
-                    '<input type="button" value="Submit" id="submitButton" onclick="clickSubmit()"' +
+                    '<input type="button" value="Submit" id="submitButton" onclick="clickSubmit('+ idAnnonce +')"' +
                 '</form>'
 
     return form;
 }
 
-const displayForm = function(id) {
-    let button = document.getElementById(id);
+const displayForm = function(idAnnonce) {
+    let button = document.getElementById(idAnnonce);
     let parent = button.parentNode;
 
-    parent.innerHTML = Form();
+    parent.innerHTML = Form(idAnnonce);
 }
 
-const clickSubmit = function() {
+const clickSubmit = function(idAnnonce) {
     let fname = document.getElementById("fname").value;
     let lname = document.getElementById("lname").value;
     let phone = document.getElementById("phone").value;
     let email = document.getElementById("email").value;
     let message = document.getElementById("message").value;
     
+    axios({
+        method: 'post',
+        url: '/addPersonne',
+        data: {
+        "nom": lname,
+        "prenom": fname,
+        "mail": email,
+        "telephone": phone
+        }
+        })
+        .then(function (res) {
+        console.log(res);
+        })
+        .catch(function (err) {
+    });
+
+    console.log("avant get");
+    
+    axios.get('personne/' + email).then( function(res) {
+        if(res.data[0].idPersonne > 0) {
+            console.log(res.data[0].idPersonne , +" et " + message);
+            addCandidacy(res.data[0].idPersonne, idAnnonce, message)
+        }
+    }).catch(function(error) {
+        console.log(error);
+    })
+}
+
+function addCandidacy(idPersonne, idAnnonce, message) {
+    axios({
+        method: 'post',
+        url: '/candidature',
+        data: {
+        "idAnnonce": idAnnonce,
+        "idPersonne": idPersonne,
+        "message": message
+        }
+        })
+        .then(function (res) {
+        console.log(res);
+        })
+        .catch(function (err) {
+        console.log(err);
+    });
 }

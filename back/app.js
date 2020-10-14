@@ -38,6 +38,16 @@ app.get("/information/:id", (req, res, next) => {
     });
 });
 
+//récuperer idPersonne par le mail
+app.get("/personne/:mail", (req, res, next) => {
+    console.log("debut route");
+    mysqlConnection.query("SELECT idPersonne FROM Personne WHERE mail=?", [req.params.mail], function(err, rows, fields) {
+        if (err) throw err;
+        res.status(200).json(rows);
+        console.log("fin route");
+    })
+})
+
 //récupérer les annonces 
 app.get("/annonce", (req, res, next) => {
     mysqlConnection.query('SELECT Annonce.idAnnonce, Annonce.description, Entreprise.nomEntreprise AS nomEntreprise FROM Annonce INNER JOIN Entreprise ON \
@@ -72,13 +82,13 @@ app.put('/updateIdentifiant/:id', function(req, res) {
     });
 });
 
-//fonction permettant de stocker les données d'une candidature
+//fonction permettant d'ajouter une candidature
 app.post('/candidature', function(req, res) {
     let data = req.body;
-    mysqlConnection.query('SELECT idPersonne FROM Personne WHERE nom=? AND prenom=?', [data.lname, data.fname], function(err, rows, fields) {
-        if(err) throw err;
-        res.status(200).json(rows);
-    }) 
+    mysqlConnection.query("INSERT INTO Candidature SET idAnnonce= ?, idCandidat= ?, contenuMail= ?", [data.idAnnonce, data.idCandidat, data.mail], function(err, rows, fiels) {
+        if (err) throw err;
+        res.end(JSON.stringify(rows));
+    })
 });
 
 module.exports = app;
