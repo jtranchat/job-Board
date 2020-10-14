@@ -34,3 +34,16 @@ h1 {
     text-align: center;
     background-color: #E6E6E6;
 }
+
+#loginButton{
+    position:absolute;
+    margin-left: 1680px;
+    bottom: 900px;
+}
+    
+#registerButton{
+    position:absolute;
+    margin-left: 1550px;
+    bottom: 900px;
+}
+    
