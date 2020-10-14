@@ -61,7 +61,7 @@ app.get("/annonce", (req, res, next) => {
 app.post('/addPersonne', function(req, res) {
     let data = req.body;
     mysqlConnection.query('INSERT INTO Personne SET ?', data, function(err, rows, fields) {
-        if (err) throw err;
+        console.log(res.end(JSON.stringify(rows)));
         res.end(JSON.stringify(rows));
     });
 });
@@ -85,7 +85,7 @@ app.put('/updateIdentifiant/:id', function(req, res) {
 //fonction permettant d'ajouter une candidature
 app.post('/candidature', function(req, res) {
     let data = req.body;
-    mysqlConnection.query("INSERT INTO Candidature SET idAnnonce= ?, idCandidat= ?, contenuMail= ?", [data.idAnnonce, data.idCandidat, data.mail], function(err, rows, fiels) {
+    mysqlConnection.query("INSERT INTO Candidature SET idAnnonce= ?, idPersonne= ?, contenuMail= ?", [data.idAnnonce, data.idPersonne, data.message], function(err, rows, fiels) {
         if (err) throw err;
         res.end(JSON.stringify(rows));
     })
