@@ -40,11 +40,8 @@ app.get("/information/:id", (req, res, next) => {
 
 //récuperer idPersonne par le mail
 app.get("/personne/:mail", (req, res, next) => {
-    console.log("debut route");
     mysqlConnection.query("SELECT idPersonne FROM Personne WHERE mail=?", [req.params.mail], function(err, rows, fields) {
-        if (err) throw err;
         res.status(200).json(rows);
-        console.log("fin route");
     })
 })
 
