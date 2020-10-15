@@ -29,8 +29,6 @@ CREATE TABLE `Personne` (
 `identifiant` varchar(20),
 `motDePasse` varchar(20),
 `status` varchar(20),
-`diplome` varchar(255),
-`experience` varchar(255),
 primary key (idPersonne)
 );
 
@@ -60,14 +58,14 @@ VALUES
 ('facebook', '6 rue Menars, 75002 Paris', 'Réseaux social'),
 ('Snapchat', '16 rue de la rochefoucauld, 75009 Paris', 'Réseaux social');
 
-INSERT INTO Personne (nom, prenom, sexe, mail, telephone,identifiant, motDePasse, status, diplome, experience)
+INSERT INTO Personne (nom, prenom, sexe, mail, telephone,identifiant, motDePasse, status)
 VALUES
-('Rochas','Alban','homme','alban.rochas@epitech.eu','0658795879','a.rochas','sparkyoto','demandeur','BTS, Bac','Contrat étudiant à Leroy Merlin'),
-('Tranchat','Joffrey','homme','joffrey.tranchat@epitech.eu','0768785945','j.tranchat','tranchat','demandeur','BTS Bac','stage Grand delta habitat à avignon pendant 6 semaines au services informatique'),
+('Rochas','Alban','homme','alban.rochas@epitech.eu','0658795879','a.rochas','sparkyoto','demandeur','BTS, Bac'),
+('Tranchat','Joffrey','homme','joffrey.tranchat@epitech.eu','0768785945','j.tranchat','tranchat','demandeur'),
 ('Mathieu','Arthur','homme','arthur.mathieu@gmail.com','0769696969','a.mathieu','mathieu','demandeur',' Informatique','25 ans en freelance'),
-('Villeseche','Ethan','homme','ethan.villeseche@gmail.com','0712121212','e.villeseche','villeseche','employeur','Ingénieur Informatique','25 ans cher google'),
-('Legger','Pierre-Antoine','homme','pierre-antoine.legger@gmail.com','0659783241','pa.legger','legger','employeur','ingénieur Informatique','10 ans chez snapchat'),
-('Bounoir','Fabien','homme','fabien.bounoir@gmail.com','0678415295','f.bounoir','bounoir','employeur','ingénieur Informatique','10 ans facebook');
+('Villeseche','Ethan','homme','ethan.villeseche@gmail.com','0712121212','e.villeseche','villeseche','employeur'),
+('Legger','Pierre-Antoine','homme','pierre-antoine.legger@gmail.com','0659783241','pa.legger','legger','employeur'),
+('Bounoir','Fabien','homme','fabien.bounoir@gmail.com','0678415295','f.bounoir','bounoir','employeur');
 
 INSERT INTO Annonce (idEntreprise, idPersonne, nom, description, place, salaires, tempDeTravailParSemaine, contrat)
 VALUES
