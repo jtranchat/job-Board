@@ -36,14 +36,10 @@ h1 {
 }
 
 #loginButton{
-    position:absolute;
-    margin-left: 1680px;
-    bottom: 900px;
+    float: right;
 }
     
 #registerButton{
-    position:absolute;
-    margin-left: 1550px;
-    bottom: 900px;
+    float: right;
 }
     

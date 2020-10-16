@@ -11,81 +11,74 @@
 <body>
 
     <div>
+        <a href="../index.html"> <input type="button" id="buttonIndex" value="menu"></a>
+    </div>
+
+    <div>
     <form action="/ma-page-de-traitement" method="post">
-     <div>
-        <label for="civil-select">Choisi ta civilité :</label>
-
-<select name="civil" id="civilSelect">
-    <option value="">Choisi une option</option>
-    <option value="dog">Homme</option>
-    <option value="cat">Femme</option>
-    
-</select>
-
-</div>
-
-<div>
-    <form action="/ma-page-de-traitement" method="post">
-     <div>
-        <label for="status-select">Choisi ton statut :</label>
-
-<select name="status" id="statusSelect">
-    <option value="">Choisi une option</option>
-    <option value="dog">Demandeur</option>
-    <option value="cat">Employeur</option>
-    
-</select>
-
-</div>
-     
         <div>
-            <label for="name">Nom :</label>
-            <input type="text" id="name" name="user_name">
+            <label for="civil-select">Choisi ta civilité :</label>
+            <select name="civil" id="civilSelect">
+                <option value="">Choisi une option</option>
+                <option value="dog">Homme</option>
+                <option value="cat">Femme</option>
+                
+            </select>
         </div>
 
         <div>
-            <label for="firstname">Prénom :</label>
-            <input type="text" id="firstName" name="forename">
-        </div>
-
-
-        <div>
-            <label for="mail">e-mail :</label>
-            <input type="email" id="mail" name="user_mail">
-        </div>
-
-        <div>
-            <label for="phone">Telephone:</label>
-            <input type="tel" id="phone" name="phone" minlength="10" maxlength="10">
+            <div>
+                <label for="status-select">Choisi ton statut :</label>
+                <select name="status" id="statusSelect">
+                    <option value="">Choisi une option</option>
+                    <option value="dog">Demandeur</option>
+                    <option value="cat">Employeur</option>
+                    
+                </select>
+            </div>
         
+            <div>
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="user_name">
+            </div>
+
+            <div>
+                <label for="firstname">Prénom :</label>
+                <input type="text" id="firstName" name="forename">
+            </div>
+
+            <div>
+                <label for="mail">e-mail :</label>
+                <input type="email" id="mail" name="user_mail">
+            </div>
+
+            <div>
+                <label for="phone">Telephone:</label>
+                <input type="tel" id="phone" name="phone" minlength="10" maxlength="10">
             </div>    
 
-        <div>
-            <label for="identifiant">Identifiant :</label>
-            <input type="text" id="identifiant" name="user_identifiant">
-        </div>
-     
-        <div>
-            <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="user_password">
-        </div>
-
-
-        <div>
-            <label for="confirm">Confirmer le mot de passe :</label>
-            <input type="password" id="confirm" name="user_confirm">
-        </div>
-
-
-        <div>
-           
-        <button class="button_submit" id="submitButton"
-        type="button"  onClick="submitClick()">
-        Soumettre
-        </button>
-        </div>
-    
-       
+            <div>
+                <label for="identifiant">Identifiant :</label>
+                <input type="text" id="identifiant" name="user_identifiant">
+            </div>
         
+            <div>
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="user_password">
+            </div>
+
+            <div>
+                <label for="confirm">Confirmer le mot de passe :</label>
+                <input type="password" id="confirm" name="user_confirm">
+            </div>
+
+            <div>
+                <button class="button_submit" id="submitButton"
+                type="button"  onClick="submitClick()">
+                Soumettre
+                </button>
+            </div>
+        </div>
+    </form>     
 </body>
 </html>

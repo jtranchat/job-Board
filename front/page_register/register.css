@@ -3,7 +3,7 @@
 form {
     /* Uniquement centrer le formulaire sur la page */
     margin: 0 auto;
-    width: 400px;
+    width: 30%;
     /* Encadré pour voir les limites du formulaire */
     padding: 1em;
     border: 1px solid #CCC;
@@ -60,4 +60,8 @@ form {
 
   body {
     background-color: #fefbd8;
+  }
+
+  #buttonIndex {
+    float: right;
   }

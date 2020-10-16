@@ -2,7 +2,7 @@ const mysql = require('mysql');
 const express = require('express');
 const path = require('path');
 const dotenv = require('dotenv')
-var app = express();
+const app = express();
 const bodyparser = require('body-parser');
 
 dotenv.config({ path: './.env'});
@@ -82,7 +82,7 @@ app.delete('/deletePersonne/:id', function(req, res) {
 });
 
 //fonction permmettant de mettre à jour les données d'une personne
-app.put('/alterPersonne/:mail', function(req, res) {
+app.put('/updatePersonne/:mail', function(req, res) {
     data = req.body;
     mysqlConnection.query('UPDATE Personne SET nom = ?, prenom= ?, sexe= ?, telephone= ?, identifiant= ?, motDePasse= ?, status= ? WHERE\
      mail= ?', [data.nom, data.prenom, data.sexe, data.telephone, data.identifiant, data.motDePasse, data.status, req.params.mail], function(err, rows, fields) {

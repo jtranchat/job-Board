@@ -38,7 +38,7 @@ const register = function(civil, status, lastName, firstName, mail, phone, ident
 const alterUser = function(mail, civil, status, lastName, firstName, phone, identifiant, password) {
     axios({
         method: 'put',
-        url: '/alterPersonne/' + mail,
+        url: '/updatePersonne/' + mail,
         data: {
         "nom": lastName,
         "prenom": firstName,
