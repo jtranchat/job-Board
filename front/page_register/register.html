@@ -18,7 +18,7 @@
     <form action="/ma-page-de-traitement" method="post">
         <div>
             <label for="civil-select">Choisi ta civilité :</label>
-            <select name="civil" id="civilSelect">
+            <select name="civil" id="civilSelect" required>
                 <option value="">Choisi une option</option>
                 <option value="dog">Homme</option>
                 <option value="cat">Femme</option>
@@ -29,7 +29,7 @@
         <div>
             <div>
                 <label for="status-select">Choisi ton statut :</label>
-                <select name="status" id="statusSelect">
+                <select name="status" id="statusSelect" required>
                     <option value="">Choisi une option</option>
                     <option value="dog">Demandeur</option>
                     <option value="cat">Employeur</option>
@@ -39,37 +39,37 @@
         
             <div>
                 <label for="name">Nom :</label>
-                <input type="text" id="name" name="user_name">
+                <input type="text" id="name" name="user_name" required>
             </div>
 
             <div>
                 <label for="firstname">Prénom :</label>
-                <input type="text" id="firstName" name="forename">
+                <input type="text" id="firstName" name="forename" required>
             </div>
 
             <div>
                 <label for="mail">e-mail :</label>
-                <input type="email" id="mail" name="user_mail">
+                <input type="email" id="mail" name="user_mail" required>
             </div>
 
             <div>
                 <label for="phone">Telephone:</label>
-                <input type="tel" id="phone" name="phone" minlength="10" maxlength="10">
+                <input type="tel" id="phone" name="phone" minlength="10" maxlength="10 " required>
             </div>    
 
             <div>
                 <label for="identifiant">Identifiant :</label>
-                <input type="text" id="identifiant" name="user_identifiant">
+                <input type="text" id="identifiant" name="user_identifiant" required>
             </div>
         
             <div>
                 <label for="password">Mot de passe :</label>
-                <input type="password" id="password" name="user_password">
+                <input type="password" id="password" name="user_password" required>
             </div>
 
             <div>
                 <label for="confirm">Confirmer le mot de passe :</label>
-                <input type="password" id="confirm" name="user_confirm">
+                <input type="password" id="confirm" name="user_confirm" required>
             </div>
 
             <div>
