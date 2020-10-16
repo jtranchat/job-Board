@@ -60,9 +60,9 @@ VALUES
 
 INSERT INTO Personne (nom, prenom, sexe, mail, telephone,identifiant, motDePasse, status)
 VALUES
-('Rochas','Alban','homme','alban.rochas@epitech.eu','0658795879','a.rochas','sparkyoto','demandeur','BTS, Bac'),
+('Rochas','Alban','homme','alban.rochas@epitech.eu','0658795879','a.rochas','sparkyoto','demandeur'),
 ('Tranchat','Joffrey','homme','joffrey.tranchat@epitech.eu','0768785945','j.tranchat','tranchat','demandeur'),
-('Mathieu','Arthur','homme','arthur.mathieu@gmail.com','0769696969','a.mathieu','mathieu','demandeur',' Informatique','25 ans en freelance'),
+('Mathieu','Arthur','homme','arthur.mathieu@gmail.com','0769696969','a.mathieu','mathieu','demandeur'),
 ('Villeseche','Ethan','homme','ethan.villeseche@gmail.com','0712121212','e.villeseche','villeseche','employeur'),
 ('Legger','Pierre-Antoine','homme','pierre-antoine.legger@gmail.com','0659783241','pa.legger','legger','employeur'),
 ('Bounoir','Fabien','homme','fabien.bounoir@gmail.com','0678415295','f.bounoir','bounoir','employeur');
