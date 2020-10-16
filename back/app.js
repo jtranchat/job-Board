@@ -41,6 +41,16 @@ app.get("/information/:id", (req, res, next) => {
 //récuperer idPersonne par le mail
 app.get("/personne/:mail", (req, res, next) => {
     mysqlConnection.query("SELECT idPersonne FROM Personne WHERE mail=?", [req.params.mail], function(err, rows, fields) {
+        if (err) throw err;
+        res.status(200).json(rows);
+    })
+})
+
+//récupérer idPersonne par identifiant et motDePasse
+app.get("/page_login/personne/:identifiant/:motDePasse", (req, res) => {
+    mysqlConnection.query("SELECT idPersonne FROM Personne WHERE identifiant= ? AND motDePasse= ?\
+    ", [req.params.identifiant, req.params.motDePasse], function(err, rows, fields) {
+        if (err) throw err;
         res.status(200).json(rows);
     })
 })
@@ -71,18 +81,21 @@ app.delete('/deletePersonne/:id', function(req, res) {
     });
 });
 
-//fonction permettant de modifier l'identifiant et le mot de passe d'une personne
-app.put('/updateIdentifiant/:id', function(req, res) {
-    mysqlConnection.query('UPDATE Personne SET identifiant= ?, motDePasse= ? WHERE idPersonne = ?', [req.body.identifiant, req.body.motDePasse,req.params.id], function(err, rows, fields) {
+//fonction permmettant de mettre à jour les données d'une personne
+app.put('/alterPersonne/:mail', function(req, res) {
+    data = req.body;
+    mysqlConnection.query('UPDATE Personne SET nom = ?, prenom= ?, sexe= ?, telephone= ?, identifiant= ?, motDePasse= ?, status= ? WHERE\
+     mail= ?', [data.nom, data.prenom, data.sexe, data.telephone, data.identifiant, data.motDePasse, data.status, req.params.mail], function(err, rows, fields) {
         if (err) throw err;
         res.end(JSON.stringify(rows));
-    });
-});
+     })
+})
 
 //fonction permettant d'ajouter une candidature
 app.post('/candidature', function(req, res) {
     let data = req.body;
-    mysqlConnection.query("INSERT INTO Candidature SET idAnnonce= ?, idPersonne= ?, contenuMail= ?", [data.idAnnonce, data.idPersonne, data.message], function(err, rows, fiels) {
+    mysqlConnection.query("INSERT INTO Candidature SET idAnnonce= ?, \
+    idPersonne= ?, contenuMail= ?", [data.idAnnonce, data.idPersonne, data.message], function(err, rows, fiels) {
         if (err) throw err;
         res.end(JSON.stringify(rows));
     })

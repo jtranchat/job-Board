@@ -29,37 +29,16 @@ const confirmPassword= function(password, confirm) {
 
 const register = function(civil, status, lastName, firstName, mail, phone, identifiant, password) {
     console.log("fonction register : " + mail);
-    let idPersonne = checkUserExist(mail);
-    console.log("fonction register " + idPersonne);
-    if(idPersonne > 0) {
-        //modifier le user existant
-        alterUser(idPersonne, civil, status, lastName, firstName, phone, identifiant, password);
-    }else{
-        //créer un nouveau user
-        addUser(civil, status, lastName, firstName, phone, identifiant, password, mail);
-    }
+
+    addUser(civil, status, lastName, firstName, phone, identifiant, password, mail);
+    alterUser(mail, civil, status, lastName, firstName, phone, identifiant, password);
+    document.location.href="../index.html";
 }
 
-const checkUserExist = function(email) {
-    let idPersonne = 0;
-    axios.get('personne/' + email).then( function(res) {
-        console.log(res.data[0].idPersonne);
-        if(res.data[0].idPersonne > 0) {
-            idPersonne = res.data[0].idPersonne;
-        } else {
-            idPersonne = 0;
-        }
-    }).catch(function(error) {
-        console.log(error);
-    })
-
-    return idPersonne;
-}
-
-const alterUser = function(idPersonne, civil, status, lastName, firstName, phone, identifiant, password) {
+const alterUser = function(mail, civil, status, lastName, firstName, phone, identifiant, password) {
     axios({
-        method: 'post',
-        url: '/alterPersonne/' + idPersonne,
+        method: 'put',
+        url: '/alterPersonne/' + mail,
         data: {
         "nom": lastName,
         "prenom": firstName,
