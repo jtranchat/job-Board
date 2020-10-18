@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>s'inscrire</title>
+    <link type="text/css" rel="stylesheet" href="register.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.js"></script>
+    <script src="register.js"></script>
+</head>
+<body>
+
+    <div>
+        <a href="../index.html"> <input type="button" id="buttonIndex" value="menu"></a>
+    </div>
+
+    <div>
+    <form action="/ma-page-de-traitement" method="post">
+        <div>
+            <label for="civil-select">Choisi ta civilité :</label>
+            <select name="civil" id="civilSelect" required>
+                <option value="">Choisi une option</option>
+                <option value="dog">Homme</option>
+                <option value="cat">Femme</option>
+                
+            </select>
+        </div>
+
+        <div>
+            <div>
+                <label for="status-select">Choisi ton statut :</label>
+                <select name="status" id="statusSelect" required>
+                    <option value="">Choisi une option</option>
+                    <option value="dog">Demandeur</option>
+                    <option value="cat">Employeur</option>
+                    
+                </select>
+            </div>
+        
+            <div>
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="user_name" required>
+            </div>
+
+            <div>
+                <label for="firstname">Prénom :</label>
+                <input type="text" id="firstName" name="forename" required>
+            </div>
+
+            <div>
+                <label for="mail">e-mail :</label>
+                <input type="email" id="mail" name="user_mail" required>
+            </div>
+
+            <div>
+                <label for="phone">Telephone:</label>
+                <input type="tel" id="phone" name="phone" minlength="10" maxlength="10 " required>
+            </div>    
+
+            <div>
+                <label for="identifiant">Identifiant :</label>
+                <input type="text" id="identifiant" name="user_identifiant" required>
+            </div>
+        
+            <div>
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="user_password" required>
+            </div>
+
+            <div>
+                <label for="confirm">Confirmer le mot de passe :</label>
+                <input type="password" id="confirm" name="user_confirm" required>
+            </div>
+
+            <div>
+                <button class="button_submit" id="submitButton"
+                type="button"  onClick="submitClick()">
+                Soumettre
+                </button>
+            </div>
+        </div>
+    </form>     
+</body>
+</html>
