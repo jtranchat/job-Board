@@ -6,10 +6,10 @@ const loginClick = function() {
     let identifiant = document.getElementById("username").value;
     let motDePasse = document.getElementById("password").value;
 
-    register(identifiant, motDePasse);
+    login(identifiant, motDePasse);
 }
 
-function register(identifiant, motDePasse) {
+function login(identifiant, motDePasse) {
     axios.get('personne/' + identifiant + '/' + motDePasse).then( function(res) {
         if(res.data.length == 0) {
             console.log("compte inexistant")
