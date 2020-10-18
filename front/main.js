@@ -107,8 +107,6 @@ const clickSubmit = function(idAnnonce) {
         .catch(function (err) {
             console.log(error);
     });
-
-    console.log("suite");
     
     axios.get('personne/' + email).then( function(res) {
         if(res.data[0].idPersonne > 0) {
@@ -118,7 +116,6 @@ const clickSubmit = function(idAnnonce) {
     }).catch(function(error) {
         console.log(error);
     })
-
 }
 
 function addCandidacy(idPersonne, idAnnonce, message) {
