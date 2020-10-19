@@ -8,6 +8,8 @@ const mysqlConnection = mysql.createConnection({
     multipleStatements: true
 });
 
+mysqlConnection.connect();
+
 exports.loginPersonne = (req, res) => {
     mysqlConnection.query("SELECT idPersonne FROM Personne WHERE identifiant= ? AND motDePasse= ?\
     ", [req.params.identifiant, req.params.motDePasse], function(err, rows, fields) {

@@ -31,7 +31,7 @@ const register = function(civil, status, lastName, firstName, mail, phone, ident
     console.log("fonction register : " + mail);
 
     addUser(civil, status, lastName, firstName, phone, identifiant, password, mail);
-    alterUser(mail, civil, status, lastName, firstName, phone, identifiant, password);
+    //alterUser(mail, civil, status, lastName, firstName, phone, identifiant, password);
     document.location.href="../index.html";
 }
 
